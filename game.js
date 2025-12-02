@@ -16,16 +16,28 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice());
-
 function getHumanChoice() {
     return prompt(`Rock-Paper-Scissors game! Make choice: (rock/paper/scissors)`, ``);
 }
 
-console.log(getHumanChoice());
-
 function playRound(humanChoice, computerChoice) {
-  // your code here!
+    humanChoice = humanChoice.toLowerCase();
+    
+    let result = 
+    (humanChoice === `rock` && computerChoice == `paper`) ? `❌ You lose! Paper beats Rock` : 
+    (humanChoice === `rock` && computerChoice == `scissors`) ? `🎉 You win! Rock beats Scissors` : 
+    (humanChoice === `rock` && computerChoice == `rock`) ? `Draw!` : 
+    
+    (humanChoice === `paper` && computerChoice == `paper`) ? `Draw!` : 
+    (humanChoice === `paper` && computerChoice == `scissors`) ? `❌ You lose! Scissors beats Paper` : 
+    (humanChoice === `paper` && computerChoice == `rock`) ? `🎉 You win! Paper beats Rock` : 
+
+    (humanChoice === `scissors` && computerChoice == `paper`) ? `🎉 You win! Scissors beats Paper` : 
+    (humanChoice === `scissors` && computerChoice == `scissors`) ? `Draw!` : 
+    (humanChoice === `scissors` && computerChoice == `rock`) ? `❌ You lose! Rock beats Scissors` : 
+    null;
+
+    (result != null) ? alert(`Your choice: ${humanChoice}.\nComputer choice: ${computerChoice}.\n${result}`) : alert(`Try again!`);
 }
 
 const humanSelection = getHumanChoice();
