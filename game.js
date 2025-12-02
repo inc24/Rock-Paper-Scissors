@@ -25,9 +25,8 @@ function playRound(humanChoice, computerChoice) {
 
     const winString = `You win`;
     const loseString = `You lose`;
-    const drawString = `Draw`;
     
-    const result = 
+    const roundResult = 
     (humanChoice === `rock` && computerChoice == `paper`) ? `❌ You lose! Paper beats Rock` : 
     (humanChoice === `rock` && computerChoice == `scissors`) ? `🎉 You win! Rock beats Scissors` : 
     (humanChoice === `rock` && computerChoice == `rock`) ? `Draw!` : 
@@ -41,22 +40,26 @@ function playRound(humanChoice, computerChoice) {
     (humanChoice === `scissors` && computerChoice == `rock`) ? `❌ You lose! Rock beats Scissors` : 
     null;
 
-    (result != null) ? alert(`Your choice: ${humanChoice}.\nComputer choice: ${computerChoice}.\n${result}`) : alert(`Try again!`);
+    (roundResult != null) ? alert(`Your choice: ${humanChoice}.\nComputer choice: ${computerChoice}.\n${roundResult}`) : alert(`Try again!`);
 
     switch (true) {
-        case result.includes(winString):
+        case roundResult.includes(winString):
             humanScore++;
             break;
 
-        case result.includes(loseString):
+        case roundResult.includes(loseString):
             computerScore++;
             break;
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+    for (let i = 1; i <= 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        alert(`Scores:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+     }
+}
 
-playRound(humanSelection, computerSelection);
-
-alert(`Scores:\nYou: ${humanScore}\nComputer: ${computerScore}`)
+playGame();
