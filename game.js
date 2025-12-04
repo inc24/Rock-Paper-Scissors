@@ -9,7 +9,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    return prompt(`Make a choice: (rock / paper / scissors)`, ``).toLowerCase();
+    return prompt(`Round ${roundCount}!\nMake a choice: (rock / paper / scissors)`, ``).toLowerCase();
 }
 
 function playRound(computerChoice, humanChoice) {
@@ -51,8 +51,8 @@ function playGame() {
         playRound(computerSelection, humanSelection);
      }
 
-     (humanScore > computerScore) ? alert(`Total Scores:\nYou: ${humanScore}\nComputer: ${computerScore}\nYOU WIN! 🎉🎉🎉`) : 
-     (humanScore < computerScore) ? alert(`Total Scores:\nYou: ${humanScore}\nComputer: ${computerScore}\nYou lost the game. 😭`) : 
+     (humanScore > computerScore) ? alert(`GAME OVER\nTotal Scores:\nYou: ${humanScore}\nComputer: ${computerScore}\nYOU WIN! 🎉🎉🎉`) : 
+     (humanScore < computerScore) ? alert(`GAME OVER\nTotal Scores:\nYou: ${humanScore}\nComputer: ${computerScore}\nYou lost the game. 😭`) : 
      (humanScore === computerScore) ? alert(`The game ended in a draw! 😊`) : null;
 }
 
